@@ -1,0 +1,14 @@
+<ng-container *ngIf="(isAuthenticated$ | async) === false; else signout">
+  <button (click)="signIn()"> Sign in </button>
+</ng-container>
+
+<ng-template #signout>
+  <button (click)="signOut()">Sign out</button>
+  <button (click)="testBackend()"> Test Backend</button>
+  <p *ngIf="backendResponse.length">{{backendResponse}}</p>
+</ng-template>
+
+
+
+
+<router-outlet></router-outlet>
